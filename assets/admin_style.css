@@ -1,0 +1,220 @@
+/* Import a modern font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- Modern Color Palette & Variables --- */
+:root {
+    --primary-color: #4a90e2; /* A nice, modern blue */
+    --secondary-color: #50e3c2; /* A vibrant accent color */
+    --background-color: #f4f7fc; /* A light, clean background */
+    --sidebar-bg: #ffffff;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --text-light: #777;
+    --border-color: #e1e1e1;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* <-- FIX 1: Added for better text readability */
+}
+
+/* FIX 2: Added for better heading spacing */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+}
+
+/* --- Sidebar Navigation --- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    background: var(--sidebar-bg);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.sidebar-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar-nav a .icon {
+    font-size: 1.1rem;
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-nav a:hover, .sidebar-nav a.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+/* --- Main Content Area --- */
+.main-content {
+    margin-left: 260px; /* Same as sidebar width */
+    padding: 30px;
+}
+
+.main-header {
+    margin-bottom: 30px;
+}
+
+.main-header h1 {
+    font-weight: 600;
+}
+
+.main-header .breadcrumb-item {
+    font-size: 0.9rem;
+}
+
+/* --- The "Floating" KPI Cards --- */
+.kpi-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px); /* This makes it "float" up */
+    box-shadow: var(--shadow-hover);
+}
+
+.kpi-card .card-icon {
+    font-size: 2.5rem;
+    padding: 20px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.kpi-card .card-text h5 {
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.kpi-card .card-text .value {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Icon Colors */
+.icon-warning { background-color: #fff0d6; color: #ffab2d; }
+.icon-info { background-color: #dcfce7; color: #22c55e; }
+.icon-secondary { background-color: #e7e7e7; color: #555; }
+.icon-dark { background-color: #d9e5ff; color: #4a90e2; }
+
+/* --- Charts & Tables --- */
+.chart-container {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.table-container {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.table-container h4 {
+    margin-bottom: 20px;
+}
+
+.table > thead {
+    background-color: #f9fafb;
+}
+
+.table th {
+    font-weight: 600;
+}
+.stat-card {
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card i {
+    font-size: 3em;
+    opacity: 0.5;
+    margin-right: 20px;
+}
+
+.stat-card div {
+    text-align: right;
+    width: 100%;
+    line-height: 1.3; /* <-- FIX 3: Added to keep text and number together */
+}
+
+.stat-card span {
+    font-size: 2.5em;
+    font-weight: bold;
+    display: block;
+}
+
+.quick-actions .btn {
+    font-size: 1.1em;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.activity-feed .list-group-item {
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+.sidebar-logo {
+    max-height: 80px; /* Adjust this value to fit your design */
+    width: auto;
+    display: block;
+    margin: 0 auto 10px; /* Centers the logo and adds space below */
+}

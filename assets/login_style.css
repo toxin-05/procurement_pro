@@ -1,0 +1,205 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- Modern Color Palette & Variables --- */
+:root {
+    --primary-color: #4a90e2;
+    --primary-color-dark: #3b73b8;
+    --background-color: #f4f7fc;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --text-light: #777;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-strong: 0 10px 30px rgba(74, 144, 226, 0.2);
+}
+
+/* --- Keyframes for Animations --- */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInScaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --- Body & Background --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #e7eff9, #f4f7fc, #e8f0ff, #f4f7fc);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    width: 900px;
+    min-height: 550px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: var(--shadow-strong);
+    overflow: hidden;
+    animation: fadeInScaleUp 0.6s ease-out forwards;
+}
+
+/* --- Left Panel (Branding) with Decorative Blobs --- */
+.login-left {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+    color: #fff;
+    padding: 50px;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background shapes */
+.login-left::before, .login-left::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    filter: blur(30px);
+}
+.login-left::before {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: -80px;
+}
+.login-left::after {
+    width: 250px;
+    height: 250px;
+    bottom: -100px;
+    right: -100px;
+}
+
+.login-left .logo {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+.login-left h1 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    z-index: 1;
+}
+
+.login-left p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+/* --- Right Panel (Form) --- */
+.login-right {
+    width: 55%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-right h2 {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.login-right p {
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    transition: color 0.3s ease;
+}
+
+.form-control {
+    background: var(--background-color);
+    border-radius: 8px;
+    padding: 14px 15px 14px 45px;
+    border: 1px solid #e1e1e1;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-control:focus {
+    background: var(--card-bg);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+}
+
+/* Interactive icon color */
+.input-group:focus-within .icon {
+    color: var(--primary-color);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--primary-color-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(74, 144, 226, 0.4);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+}
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .login-left { display: none; }
+    .login-container { width: 100%; max-width: 450px; height: auto; margin: 20px; }
+    .login-right { width: 100%; padding: 40px; }
+}
